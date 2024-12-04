@@ -11,7 +11,7 @@
 
  const fetchData = async () => {
    try {
-     const response = await fetch('/api/api/random');
+     const response = await fetch('https://zenquotes.io/api/random');
      if (!response.ok) {
        throw new Error('Error al obtener los datos');
      }
