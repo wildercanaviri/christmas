@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import {ref, onMounted} from "vue";
+import {ref} from "vue";
 
 const audio = ref<HTMLAudioElement | null>(null);
 const isPlay = ref<boolean>(false);
@@ -14,15 +14,6 @@ const toggleAudio = () => {
     }
   }
 }
-onMounted(() => {
-  if (audio.value) {
-    audio.value.play().then(() => {
-      isPlay.value = true;
-    }).catch(() => {
-      console.warn("Reproducción automática bloqueada por el navegador. El usuario debe interactuar primero.");
-    });
-  }
-});
 </script>
 <template>
   <div class="flex items-center gap-2">
