@@ -11,7 +11,7 @@
 
  const fetchData = async () => {
    try {
-     const response = await fetch('/api/random');
+     const response = await fetch('/api/api/random');
      if (!response.ok) {
        throw new Error('Error al obtener los datos');
      }
