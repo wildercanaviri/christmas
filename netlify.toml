@@ -1,4 +1,4 @@
 [[redirects]]
-  from = "/api/*"
-  to = "https://api.otherdomain.com/:splat"
+  from = "/api/zenquotes"
+  to = "https://zenquotes.io/api/random"
   status = 200
