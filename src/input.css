@@ -1,0 +1,26 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+    font-family: 'Chirstmas';
+    src: url('./assets/fonts/christmas-bell/Christmas.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Sunfish';
+    src: url('./assets/fonts/sunfish/Sunfish.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/*
+body, html {
+    background: url(./assets/images/background.webp) no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}*/
