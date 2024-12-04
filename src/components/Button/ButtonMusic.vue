@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import {ref} from "vue";
+import {ref, onMounted} from "vue";
 
 const audio = ref<HTMLAudioElement | null>(null);
 const isPlay = ref<boolean>(false);
@@ -14,6 +14,15 @@ const toggleAudio = () => {
     }
   }
 }
+onMounted(() => {
+  if (audio.value) {
+    audio.value.play().then(() => {
+      isPlay.value = true;
+    }).catch(() => {
+      console.warn("Reproducción automática bloqueada por el navegador. El usuario debe interactuar primero.");
+    });
+  }
+});
 </script>
 <template>
   <div class="flex items-center gap-2">
@@ -24,7 +33,7 @@ const toggleAudio = () => {
     <div id="pause" v-else @click="toggleAudio()" >
       <svg class="h-10 w-10 text-red-500"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round">  <circle cx="12" cy="12" r="10" />  <line x1="10" y1="15" x2="10" y2="9" />  <line x1="14" y1="15" x2="14" y2="9" /></svg>
     </div>
-    <audio ref="audio">
+    <audio ref="audio" loop>
       <source src="../../assets/music/music.mp3" type="audio/mp3">
     </audio>
   </div>
