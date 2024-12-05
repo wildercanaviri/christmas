@@ -41,7 +41,7 @@ const handleMessage = (msg: string) => {
       <div class="flex flex-col items-center pt-28 pb-4 z-20">
         <h1 class="custom-title pb-8 text-center text-6xl md:text-8xl">¡Estamos contando los días para la Navidad!</h1>
         <Countdown></Countdown>
-        <p class="custom-text text-center py-4 md:py-12" v-if="isLoading">
+        <p class="custom-text text-center py-4 md:py-12" v-show="isLoading">
           <img src="./assets/images/santa1.gif" class="loading-santa" alt="" srcset="">
         </p>
         <p class="custom-text text-center py-8 md:py-12 text-4xl md:text-5xl" v-if="message == '' && !isLoading">De parte del equipo de Sistemas les deseamos una <b>Feliz Navidad</b> llena de alegría y un <b>Año Nuevo</b> lleno de exitos</p>
