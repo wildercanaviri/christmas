@@ -1,11 +1,13 @@
 <script setup lang="ts">
-import {ref} from "vue";
+import {defineEmits, ref} from "vue";
 
 const audio = ref<HTMLAudioElement | null>(null);
 const isPlay = ref<boolean>(false);
+const emit = defineEmits(['play']);
 
 const toggleAudio = () => {
   isPlay.value = !isPlay.value;
+  emit('play', isPlay.value);
   if (audio.value) {
     if (isPlay.value) {
       audio.value.play();

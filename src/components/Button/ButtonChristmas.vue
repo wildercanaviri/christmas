@@ -78,20 +78,15 @@
 </template>
 
 <style>
-.modal-content {
-  background-color: rgba(0, 0, 0, 0.9); /* Fondo oscuro con transparencia */
-
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5); /* Sombra */
-}
 .button {
+  font-family: 'Sunfish', sans-serif;
   display: inline-block;
   -webkit-box-sizing:border-box;
   -moz-box-sizing:border-box;
   box-sizing:border-box;
   min-width:100px;
   padding: 22px 33px;
-  font-family: 'Lobster', cursive;
-  font-size: 26px;
+  font-size: 42px;
   line-height: 26px;
   text-decoration: none;
   color: #FFF;
@@ -153,18 +148,6 @@
   transition: 50ms linear;
 }
 
-
-/* other styles */
-html, body {
-  width:100%;
-  height: 100%;
-}
-.bg {
-  width: 100%;
-  height: 100%;
-  display: table;
-  background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPHJhZGlhbEdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgY3g9IjUwJSIgY3k9IjUwJSIgcj0iNzUlIj4KICAgIDxzdG9wIG9mZnNldD0iMCUiIHN0b3AtY29sb3I9IiNkMzU0NDgiIHN0b3Atb3BhY2l0eT0iMSIvPgogICAgPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjNGExMTBjIiBzdG9wLW9wYWNpdHk9IjEiLz4KICA8L3JhZGlhbEdyYWRpZW50PgogIDxyZWN0IHg9Ii01MCIgeT0iLTUwIiB3aWR0aD0iMTAxIiBoZWlnaHQ9IjEwMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
-}
 .centerer {
   display: table-cell;
   vertical-align: middle;

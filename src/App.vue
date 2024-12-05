@@ -7,7 +7,12 @@ import ButtonChristmas from "./components/Button/ButtonChristmas.vue";
 import ButtonMusic from "./components/Button/ButtonMusic.vue";
 
 const isLoading = ref(false);
+const isPlay = ref(false);
 const message = ref('');
+
+const handlePlay = (playStatus: boolean) => {
+  isPlay.value = playStatus;
+}
 
 const handleLoading = (loadingStatus: boolean) => {
   isLoading.value = loadingStatus;
@@ -22,22 +27,25 @@ const handleMessage = (msg: string) => {
   <div class="wrapper">
     <Lights></Lights>
     <Fireflies></Fireflies>
-    <div class="button-music absolute top-10 right-8">
-      <ButtonMusic></ButtonMusic>
+    <div class="button-music absolute top-12 right-8 z-40">
+      <ButtonMusic @play="handlePlay"></ButtonMusic>
     </div>
-    <div class="content-chritmas flex flex-col justify-items-center items-center p-2 md:p-0">
-      <div class="flex flex-col items-center">
-        <h1 class="custom-title pt-28 pb-8 text-center text-6xl md:text-8xl">¡Estamos contando los días para la Navidad!</h1>
+    <div class="logo absolute top-12 left-4 md:left-8 z-40">
+      <img class="" src="./assets/images/logo.png" alt="" srcset="">
+    </div>
 
+    <div class="content-chritmas flex flex-col justify-items-center items-center p-2 md:p-0 relative">
+      <div v-if="isPlay" class="absolute inset-x-0 z-10 top-12 md:top-8">
+        <img src="./assets/images/tree.gif" class="tree-custom" alt="" srcset="">
+      </div>
+      <div class="flex flex-col items-center pt-28 pb-4 z-20">
+        <h1 class="custom-title pb-8 text-center text-6xl md:text-8xl">¡Estamos contando los días para la Navidad!</h1>
         <Countdown></Countdown>
         <p class="custom-text text-center py-4 md:py-12" v-if="isLoading">
-          <span class="loading loading-ball loading-xs"></span>
-          <span class="loading loading-ball loading-sm"></span>
-          <span class="loading loading-ball loading-md"></span>
-          <span class="loading loading-ball loading-lg"></span>
+          <img src="./assets/images/santa1.png!sw800" class="loading-santa" alt="" srcset="">
         </p>
-        <p class="custom-text text-center py-4 md:py-12 text-4xl md:text-5xl" v-if="message == '' && !isLoading">De parte del equipo de Sistemas les deseamos una <b>Feliz Navidad</b> llena de alegría y un <b>Año Nuevo</b> lleno de exitos</p>
-        <p class="custom-text text-center py-4 md:py-12 text-4xl md:text-5xl" v-if="message != '' && !isLoading">{{message}}</p>
+        <p class="custom-text text-center py-8 md:py-12 text-4xl md:text-5xl" v-if="message == '' && !isLoading">De parte del equipo de Sistemas les deseamos una <b>Feliz Navidad</b> llena de alegría y un <b>Año Nuevo</b> lleno de exitos</p>
+        <p class="custom-text text-center py-8 md:py-12 text-4xl md:text-5xl" v-if="message != '' && !isLoading">{{message}}</p>
         <ButtonChristmas @loading="handleLoading" @message="handleMessage"></ButtonChristmas>
       </div>
     </div>
@@ -45,6 +53,21 @@ const handleMessage = (msg: string) => {
 </template>
 
 <style lang="scss">
+.logo img{
+  padding: 7px;
+  width: 71px;
+}
+
+.loading-santa {
+  height: 120px;
+  width: auto;
+}
+
+.tree-custom {
+  height: 75vh;
+  opacity: 0.6;
+  margin: 0 auto;
+}
 
 .wrapper {
     min-height: 100vh;
