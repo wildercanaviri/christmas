@@ -35,7 +35,7 @@ const handleMessage = (msg: string) => {
     </div>
 
     <div class="content-chritmas flex flex-col justify-items-center items-center p-2 md:p-0 relative">
-      <div v-if="isPlay" class="absolute inset-x-0 z-10 top-12 md:top-8">
+      <div v-show="isPlay" class="absolute inset-x-0 z-10 top-12 md:top-8">
         <img src="./assets/images/tree.gif" class="tree-custom" alt="" srcset="">
       </div>
       <div class="flex flex-col items-center pt-28 pb-4 z-20">
