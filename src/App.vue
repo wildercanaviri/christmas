@@ -5,10 +5,12 @@ import Fireflies from './components/fireflies/Fireflies.vue';
 import Countdown from './components/Countdown/Countdown.vue';
 import ButtonChristmas from "./components/Button/ButtonChristmas.vue";
 import ButtonMusic from "./components/Button/ButtonMusic.vue";
+import ButtonPage from "./components/Button/ButtonPage.vue";
 
 const isLoading = ref(false);
 const isPlay = ref(false);
 const message = ref('');
+const page = ref(1);
 
 const handlePlay = (playStatus: boolean) => {
   isPlay.value = playStatus;
@@ -20,6 +22,10 @@ const handleLoading = (loadingStatus: boolean) => {
 
 const handleMessage = (msg: string) => {
   message.value = msg;
+}
+
+const handlePage = (value: string) => {
+  page.value = value;
 }
 </script>
 
@@ -39,14 +45,44 @@ const handleMessage = (msg: string) => {
         <img src="./assets/images/tree.gif" class="tree-custom" alt="" srcset="">
       </div>
       <div class="flex flex-col items-center pt-28 pb-4 z-20">
-        <h1 class="custom-title pb-8 text-center text-6xl md:text-8xl">¡Estamos contando los días para la Navidad!</h1>
-        <Countdown></Countdown>
-        <p class="custom-text text-center py-4 md:py-12" v-show="isLoading">
-          <img src="./assets/images/santa1.gif" class="loading-santa" alt="" srcset="">
-        </p>
-        <p class="custom-text text-center py-8 md:py-12 text-4xl md:text-5xl" v-if="message == '' && !isLoading">De parte del equipo de Sistemas les deseamos una <b>Feliz Navidad</b> llena de alegría y un <b>Año Nuevo</b> lleno de exitos</p>
-        <p class="custom-text text-center py-8 md:py-12 text-4xl md:text-5xl" v-if="message != '' && !isLoading">{{message}}</p>
-        <ButtonChristmas @loading="handleLoading" @message="handleMessage"></ButtonChristmas>
+        <div v-if="page == 1">
+          <h1 class="custom-title pb-8 text-center text-6xl md:text-8xl">¡Estamos contando los días para la Navidad!</h1>
+          <div class="flex justify-center">
+            <Countdown></Countdown>
+          </div>
+          <p class="custom-text text-center py-4 md:py-12" v-show="isLoading">
+            <img src="./assets/images/santa1.gif" class="loading-santa" alt="" srcset="">
+          </p>
+          <p class="custom-text text-center py-8 md:py-12 text-4xl md:text-5xl" v-if="message == '' && !isLoading">De parte del equipo de Sistemas les deseamos una <b>Feliz Navidad</b> llena de alegría y un <b>Año Nuevo</b> lleno de exitos</p>
+          <p class="custom-text text-center py-8 md:py-12 text-4xl md:text-5xl" v-if="message != '' && !isLoading">{{message}}</p>
+          <div class="flex justify-center">
+            <ButtonChristmas @loading="handleLoading" @message="handleMessage"></ButtonChristmas>
+          </div>
+        </div>
+        <div v-if="page == 2" class="text-center">
+          <h1 class="custom-title pb-6 text-center text-6xl md:text-8xl">
+            Somos sistemas
+          </h1>
+          <p class="custom-text">
+          Esta página web es un ejemplo de nuestra creatividad. Espero que nuestros mensajes motivacionales te inspiren y te ayuden a comenzar el día con energía.
+          </p>
+          <p class="custom-text font-bold">
+            Somos parte del eslabon más importante de la empresa
+          </p>
+        </div>
+        <div v-if="page == 3" class="text-center">
+          <h1 class="custom-title pb-2 text-center text-6xl md:text-8xl">
+            Equipo de Sistemas
+          </h1>
+          <ul class="custom-text">
+            <li>Limbert Fuentes Quiroga</li>
+            <li>Ronal Ayra Revollo</li>
+            <li>Wilder Canaviri Astete</li>
+            <li>Dennys Barja Carballo</li>
+            <li>Alejandro Cesar Rodriguez Arce</li>
+          </ul>
+        </div>
+        <ButtonPage @page="handlePage"></ButtonPage>
       </div>
     </div>
   </div>
@@ -99,6 +135,12 @@ const handleMessage = (msg: string) => {
   font-size: 3rem;
   color: whitesmoke;
   padding: 20px 0;
+}
+
+.custom-text li {
+  font-family: 'Sunfish', sans-serif;
+  font-size: 2.2rem;
+  color: whitesmoke;
 }
 
 .footer-image {
