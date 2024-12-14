@@ -41,23 +41,19 @@ const handlePage = (value: number) => {
     </div>
 
     <div class="content-chritmas flex flex-col justify-items-center items-center p-2 md:p-0 relative">
-      <div v-show="isPlay" class="absolute inset-x-0 z-10 top-12 md:top-8">
+      <div v-show="isPlay && page == 1" class="absolute inset-x-0 z-10 top-12 md:top-8">
         <img src="./assets/images/tree.gif" class="tree-custom" alt="" srcset="">
       </div>
       <div class="flex flex-col items-center pt-28 pb-4 z-20">
-        <div v-if="page == 1">
+        <div v-if="page == 1" class="flex flex-col items-center">
           <h1 class="custom-title pb-8 text-center text-6xl md:text-8xl">¡Estamos contando los días para la Navidad!</h1>
-          <div class="flex justify-center">
-            <Countdown></Countdown>
-          </div>
+          <Countdown></Countdown>
           <p class="custom-text text-center py-4 md:py-12" v-show="isLoading">
             <img src="./assets/images/santa1.gif" class="loading-santa" alt="" srcset="">
           </p>
           <p class="custom-text text-center py-8 md:py-12 text-4xl md:text-5xl" v-if="message == '' && !isLoading">De parte del equipo de Sistemas les deseamos una <b>Feliz Navidad</b> llena de alegría y un <b>Año Nuevo</b> lleno de exitos</p>
           <p class="custom-text text-center py-8 md:py-12 text-4xl md:text-5xl" v-if="message != '' && !isLoading">{{message}}</p>
-          <div class="flex justify-center">
-            <ButtonChristmas @loading="handleLoading" @message="handleMessage"></ButtonChristmas>
-          </div>
+          <ButtonChristmas @loading="handleLoading" @message="handleMessage"></ButtonChristmas>
         </div>
         <div v-if="page == 2" class="text-center">
           <h1 class="custom-title pb-6 text-center text-6xl md:text-8xl">
