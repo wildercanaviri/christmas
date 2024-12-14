@@ -79,7 +79,6 @@ const handlePage = (value: number) => {
             <li>Ronal Ayra Revollo</li>
             <li>Wilder Canaviri Astete</li>
             <li>Dennys Barja Carballo</li>
-            <li>Alejandro Cesar Rodriguez Arce</li>
           </ul>
         </div>
         <ButtonPage @page="handlePage"></ButtonPage>
