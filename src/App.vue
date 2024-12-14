@@ -24,7 +24,7 @@ const handleMessage = (msg: string) => {
   message.value = msg;
 }
 
-const handlePage = (value: string) => {
+const handlePage = (value: number) => {
   page.value = value;
 }
 </script>
